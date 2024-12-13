@@ -1,0 +1,15 @@
+Điều khiển Led: on, Loại led: pixelsgen, Số lượng led: 12 pixels.
+Kết nối thành công tới Home Assistant tại địa chỉ: http://192.168.1.150:8123
+tải lại hass
+Đang tải lại file cấu hình mới
+volume_start: 80.0, volume_min: 0, volume_max: 100, volume_card: Headphone
+tải lại hass
+Đang tải lại file cấu hình mới
+
+import new_main
+google
+
+[ViPi_startup]+  PICOVOICE: ON + STT_GOOGLE_SDK: OFF;  STT Zalo_free or STT Google_free: ON]
+Bật thread Hotword Picovoice
+ * Serving Flask app 'new_main'
+ * Debug mode: off
