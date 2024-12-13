@@ -1,6 +1,6 @@
 # ViPi Assistant
 - IMG đã cài driver Mic USB: https://drive.google.com/file/d/1YFjD6JKGK988xVYs0a4X9dlci9CsNG4Q/view?usp=sharing  để dùng với MicReSpeaker cài thêm driver cho Mic.
-- IMG dành cho Mic i2s: [https://drive.google.com/file/d/1crcOgbnWCO6qUX5TO337RYOW0kGZQ3zK/view?usp=sharing](https://drive.google.com/file/d/1NunH44a2vq8h0gXg4aZ0rqRtJIayIudu/view?usp=sharing)
+- IMG dành cho Mic i2s: https://drive.google.com/file/d/1kYYMQDG7XgeOlvEzkzaJaYIteIJmDFv3/view?usp=drive_link
  - Linux kernel 5.15.84 
  - User/pass Pi :(pi/raspberry)
 
@@ -15,7 +15,7 @@ sudo nano /usr/share/alsa/alsa.conf
 ```
 tìm đến dòng số 14 "~/.asoundrc" và thêm # vào đầu để tắt .asoundrc
 
-# Chạy thủ công ViPi:
+# Để Chạy thủ công ViPi:
 vào IP:/9001 với user/pass vipi/vipi bấm stop
 
 chạy các lệnh sau để chạy thủ công
