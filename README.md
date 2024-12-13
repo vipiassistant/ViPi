@@ -1,11 +1,12 @@
 # ViPi Assistant
 
-IMG đã cài driver Mic USB: https://drive.google.com/file/d/1YFjD6JKGK988xVYs0a4X9dlci9CsNG4Q/view?usp=sharing  để dùng với MicReSpeaker cài thêm driver cho Mic
+IMG đã cài driver Mic USB: https://drive.google.com/file/d/1YFjD6JKGK988xVYs0a4X9dlci9CsNG4Q/view?usp=sharing  
+IMG đã cài driver Mic I2S: https://drive.google.com/file/d/1kYYMQDG7XgeOlvEzkzaJaYIteIJmDFv3/view?usp=drive_link
 
  - Linux kernel 5.15.84 
  - User/pass Pi :(pi/raspberry)
 
-# Để cài driver Mic ReSpeaker hãy chạy các lệnh sau:
+# Để dùng với MicReSpeaker hãy chạy các lệnh sau:
 ```sh
 cd /home/${USER}/
 git clone https://github.com/HinTak/seeed-voicecard
@@ -192,3 +193,5 @@ Ví dụ: Tèo ơi, phát bài hát hai mùa mưa trên Youtube
      - Vi Pi ơi, đổi giọng edge nam
      - Vi Pi ơi, đổi giọng zalo nam
      - Vi Pi ơi, đổi giọng google nam
+## Email liên hệ:  vipi.tearm@gmail.com
+## Facebook: https://www.facebook.com/groups/285131860062315/
