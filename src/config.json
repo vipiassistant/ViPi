@@ -1,0 +1,186 @@
+{
+    "Boss": "Hà Long",
+    "Pushbullet": {
+        "Control": "off",
+        "Names": [
+            "bố",
+            "mẹ"
+        ],
+        "Id": [
+            "o.OiU8vS1dWYWUY1cx9QjPEMYIrGiBW1eE",
+            "o.OiU8vSXXXX"
+        ],
+        "Names_Id": [
+            "bố long",
+            "mẹ hằng"
+        ]
+    },
+    "Telegram": {
+        "Control": "off",
+        "Names": [
+            "bố",
+            "mẹ"
+        ],
+        "Token": [
+            "5741428648:AAFJI8piXVpt8vPED9Wr3LzxO4b7xhpkr1A",
+            "o.OiU8vS1dWYWUY1cx9QjPEMYIrGiBW1eE"
+        ],
+        "Chat_Id": [
+            "-674784289",
+            "o.OiU8vS1dWYWUY1cx9QjPEMYIrGiBW1eE"
+        ],
+        "Names_Id": [
+            "bố long",
+            "mẹ hằng"
+        ]
+    },
+    "Chromecast": {
+        "Control": "on",
+        "Device_Names": [
+            "trên loa",
+            "trên tivi"
+        ],
+        "IP_Address": [
+            "192.168.1.5",
+            "192.168.1.209"
+        ]
+    },
+    "Gpios": {
+        "control": "on",
+        "gpio_logic": 0,
+        "gpio_down": 25,
+        "gpio_left": 22,
+        "gpio_right": 26,
+        "gpio_up": 13,
+        "ir": 12
+    },
+    "Home_Assistant": {
+        "control": "on",
+        "external_url": "http://vipi.duckdns.org:8123",
+        "internal_url": "http://192.168.1.150:8123",
+        "ratio": 90,
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI2MWI4NzlhZmNmNDM0OGNjOTViZjg5N2NiYWI0MjQ1YSIsImlhdCI6MTY5MzcyNjIyMiwiZXhwIjoyMDA5MDg2MjIyfQ.9WPrmfEOiLeMEK4pYswD90KWsTe-2Jh9Dtbyh5hvV34"
+    },
+    "MQTT": {
+        "control": "on",
+        "mqtt_bocker": "192.168.1.150",
+        "mqtt_topic": "my/mqtt/topic",
+        "username": "pi",
+        "password": "Viettel789"
+    },
+    "IR": {
+        "Control": "off",
+        "Codes": [
+            2155813095,
+            6690454,
+            2155815135,
+            6709986,
+            2155849815,
+            2155850325,
+            2155864605,
+            6692125,
+            6704846,
+            6688527,
+            6706131
+        ],
+        "Commands": [
+            "mấy giờ",
+            "assistant",
+            "thời tiết hôm nay",
+            "tăng âm lượng",
+            "kế tiếp",
+            "stop",
+            "phát lại",
+            "giảm âm lượng",
+            "music",
+            "radio",
+            "story"
+        ],
+        "Music_list": [
+            "nhạc thiếu nhi",
+            "cháu thương chú bộ đội",
+            "liên khúc con heo đất",
+            "thiếu nhi vai chú mang súng",
+            "thiếu nhi quả gì",
+            "thiếu nhi bé xuân mai",
+            "thiếu nhi cả nhà thương nhau",
+            "sóng gió",
+            "cô độc vương",
+            "dân ca thiếu nhi"
+        ],
+        "Story_list": [
+            "cổ tích tích chu",
+            "cổ tích thánh gióng",
+            "cô bé quàng khăn đỏ",
+            "cổ tích việt nam",
+            "cổ tích tấm cám",
+            "sự tích hoa mào gà",
+            "sự tích quả dưa hấu",
+            "truyện cây khế"
+        ]
+    },
+    "SpeechToText": {
+        "Choice": "google"
+    },
+    "Start_config": {
+        "Startup_voice": "off",
+        "Read_IP": "off"
+    },
+    "TextToSpeech": {
+        "Choice": "nữ google",
+        "Speed": 0.9,
+        "Quality": 1,
+        "Voice_Gender": "off",
+        "Voice_Region": "miền nam",
+        "Zalo_API": [
+            "E8mpp9RGC2rBAV6I58AXD3LFQtDXE9TS",
+            "E8mpp9RGC2rBAV6I58AXD3LFQtDXE9TS"
+        ]
+    },
+    "Wakewords": {
+        "Picovoice_wakeword_models_en": [
+            "/home/pi/ViPi/resources/picovoice_models_en/hey siri_raspberry-pi.ppn",
+            "/home/pi/ViPi/resources/picovoice_models_en/ok google_raspberry-pi.ppn",
+            "/home/pi/ViPi/resources/picovoice_models_en/alexa_raspberry-pi.ppn"
+        ],
+        "Picovoice_wakeword_models_vi": [
+            "/home/pi/ViPi/resources/picovoice_models_vi/Vi-pi-ơi_vn_raspberry-pi_v2_2_0.ppn",
+            "/home/pi/ViPi/resources/picovoice_models_vi/Vi-bi-ơi_vn_raspberry-pi_v2_2_0.ppn",
+            "/home/pi/ViPi/resources/picovoice_models_vi/tèo-ơi_vn_raspberry-pi_v2_2_0.ppn",
+            "/home/pi/ViPi/resources/picovoice_models_vi/gấu-ơi_vn_raspberry-pi_v2_2_0.ppn"
+        ],
+        "Wakeword_Engine_Google": "off",
+        "Wakeword_Engine_Picovoice": "on",
+        "wakeword_models": "vi",
+        "access_key": "ig4J30nReYupu9q6sDv0dIsYVo0i6SBbIHIaq8i931KBYygRH58SeA==",
+        "sensitivities": 0.3
+    },
+    "Weather": {
+        "location": "Tam Kỳ",
+        "country_code": "VN",
+        "api_key": "2963642aef55a07aaf378ad1dbe9b1c3"
+    },
+    "Search_YouTube_Server": {
+        "control": "off",
+        "server_address": "http://vipi.duckdns.org"
+    },
+    "User_Interface": {
+        "control": "on"
+    },
+    "Ask_again": {
+        "control": "on"
+    },
+    "led_setup": {
+        "control": "on",
+        "effect": "Echo",
+        "pixels": 4,
+        "type": "r4m"
+    },
+    "vol_setup": {
+        "amixer_controls": "Master",
+        "number_cards": "1",
+        "volume_max": 100,
+        "volume_min": 0,
+        "volume_start": 70
+    }
+}

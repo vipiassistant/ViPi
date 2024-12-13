@@ -1,0 +1,448 @@
+{% extends "header-footer.html" %}
+
+{% block content %}
+
+	<div class="slider">
+	<div class="section" id="section1">
+		
+		
+		<div class="row">
+			<div class="col-12 col-lg-6">
+
+				<div class="welcome">
+					<div class="info">
+						<h1>Xin chào, {{boss}}!</h1>
+						<p>Chào mừng bạn đến với trang quản trị của loa thông minh ViPi ! Chúc bạn 1 ngày vui vẻ.</p>
+					</div>
+					<div class="weather">						
+						<div id="temp" class="temp"><span></span></div>
+						<div class="weather-info">
+							<!--<span id="weather-type"></span> -->
+								<img src="" alt="Đang cập nhật...">
+							<!-- <span id="wind-speed"></span> -->
+						</div>
+						<div id="location" class="location"></div>
+					</div>
+					<p>Hôm nay ngày <strong id="date"></strong></p>
+					<div class="clock" id="clock"> </div>
+				</div>
+			</div>			
+			
+			<div class="col-12 col-lg-6">
+				<div class="col-content">
+					<div class="box-mini">
+					<div class="wrab-box bg-violet">
+						<div class="control">
+							<div class="device-icon">
+								<i class="fa fa-home" aria-hidden="true"></i>
+							</div>
+							<div class="device-button">	
+								<div class="form-check form-switch">
+									<input class="form-check-input" type="checkbox" id="toggleSwitch" {{check_b1}} >
+									<label class="form-check-label" for="toggleSwitch" data-on-text="on" data-off-text="off">
+									<div class="toggle-btn"></div>
+									</label>
+								</div>						
+							</div>	
+						</div>
+						<small>Hass</small>
+					</div>
+		
+					<div class="wrab-box bg-yellow">
+						<div class="control">
+							<div class="device-icon">
+								<i class="fa fa-home" aria-hidden="true"></i>
+							</div>
+							<div class="device-button">	
+								 <div class="form-check form-switch">
+									<input id="toogle-input1" type="checkbox" class='btn2' {{check_b2}} >
+									<label for="toogle-input1" class="b2_status">{{b2}}</label>
+									<div class="toggle-btn"></div>
+									</label>
+								</div>					
+							</div>	
+						</div>
+						<small>Ztts</small>
+					</div>
+					<div class="wrab-box bg-yellow">									
+						<div class="input-toogle1 button-toggle">
+							<input id="toogle-input1" type="checkbox" class='btn2' {{check_b2}} >
+							<label for="toogle-input1" class="b2_status">{{b2}}</label>
+						</div> 
+						<small>GTTS | ZTTS</small>
+					</div>	
+					<div class="wrab-box bg-orange">
+						<div class="control">
+							<div class="device-icon">
+								<i class="fa fa-home" aria-hidden="true"></i>
+							</div>
+							<div class="device-button">	
+								 <div class="form-check form-switch">
+									<input class="form-check-input" type="checkbox" id="toggleSwitch3">
+									<label class="form-check-label" for="toggleSwitch3" data-on-text="On" data-off-text="Off">
+										<div class="toggle-btn"></div>
+									</label>
+								</div>					
+							</div>	
+						</div>
+						<small>Ztts</small>
+					</div>
+					</div>
+					<div id="system-info">
+						<ul>
+							<li><strong>Hệ điều hành:</strong> {{sys}}; </li>
+							<li><strong>Tên thiết bị:</strong> {{node}}; </li>
+							<li><strong>Thời gian hoạt động:</strong> {{boottime}};</li>
+							<li><strong>Tốc độ CPU:</strong> {{currentfrequency}} Mhz</li>
+						</ul>
+					</div> 
+				</div>	
+											
+			
+			</div>
+		</div>
+		
+		
+	</div>
+	
+	<div class="section" id="section2">
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				<div class="col-content">
+					<h2 class="title-box">phát nhạc</h2>
+					<div id="music-box">
+					<form method="post" action="wplay">
+						<input name="song" placeholder="Nhập tên bài hát cần phát">
+						<button type="submit"> Tìm và phát </button> 
+					</form>
+					</div>
+					<div class="btn-group">
+						<form method="post" action = "voldown">
+							<button type="submit"><i class="fa fa-volume-down" aria-hidden="true"></i></button> </form>
+						<form method="post" action="prev">
+							<button type="submit"><i class="fa fa-backward" aria-hidden="true"></i></button> </form>
+						<form method="post" action="play">
+							<button type="submit"><i class="fa fa-play" aria-hidden="true"></i></button> </form>
+						<form method="post" action="next">
+							<button type="submit"><i class="fa fa-forward" aria-hidden="true"></i></button> </form>
+						<form method="post" action = "volup">
+							<button type="submit"><i class="fa fa-volume-up" aria-hidden="true"></i></button> </form>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-12 col-lg-6">
+				<div class="col-content">
+					<h2 class="title-box">Đọc văn bản</h2>
+					<form method="POST">
+						<textarea id="doc-text" name="text" rows="5" cols="25"></textarea>      
+						<button class="btn-submit reading-btn" type="submit"> Gửi đến loa </button>
+					</form>	
+				</div>
+			</div>	
+		</div>
+	</div>
+	
+	<div class="section" id="section3">
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				<div class="col-content">
+					<div id="settings">
+						<form method="post">
+							<h2 class="title-box"><strong>CẤU HÌNH CHUNG</strong><span>( <a href="#"><em> XIN CHÀO BẠN ĐẾN VỚI CẤU HÌNH NHANH THIẾT BỊ<em></a> )</span></h2>
+							<div class="text-input-config">
+								Tên của bạn: <span style="color:#e74c3c;">{{boss}}</span> <input name="vipiname" placeholder="{{boss}}">
+								Vị trí của bạn: <span style="color:#e74c3c;">{{location}}</span> <input name="location" placeholder="{{location}}" >
+								Bật âm thanh khởi động (on/off): <span style="color:#e74c3c;">{{startup_sound}}</span> <input name="startup_sound" placeholder="{{startup_sound}}">
+								Âm lượng khởi động (0-100): <span style="color:#e74c3c;">{{volume}}</span> <input name="volume" placeholder="{{volume}}">
+								Đọc IP (on/off): <span style="color:#e74c3c;">{{get_ip}}</span> <input name="get_ip" placeholder="{{get_ip}}">
+							</div>
+
+							<h2 class="title-box"><strong>Cấu hình Wakeup</strong><span>( <a href="#"><em> ĐỂ ĐĂNG KÝ hãy truy cập https://console.picovoice.ai/ <em></a> )</span></h2>
+							<div class="text-input-config">
+								Ngôn ngữ Wakeup(EN/VI): <span style="color:#e74c3c;">{{wakeword_models}}</span> <input name="wakeword_models" placeholder="{{wakeword_models}}">
+								Access_key</span> <input name="access_key" placeholder="{{access_key}}">
+								Độ nhạy Wakeup(0.3 - 1.0): <span style="color:#e74c3c;">{{sensitivities}}</span> <input name="sensitivities" placeholder="{{sensitivities}}">
+							</div>
+
+							<h2 class="title-box"><strong>Cấu hình giọng nói</strong><span>( <a href="#"><em>Chọn 1 trong các giọng đọc sau:</em></a> )</span></h2>
+							<div class="text-input-config">
+								Nam Minh, Hoài Mỹ, Nam Miền Bắc, Nam Miền Nam, Nữ Miền Bắc, Nữ Miền Nam, chị Google, anh google <span style="color:#e74c3c;"> Giọng đọc hiện tại: {{tts}}</span> <input name="tts" placeholder="{{tts}}">
+								Tốc độ giọng đọc (0-1): <span style="color:#e74c3c;">{{speed}}</span> <input name="speed" placeholder="{{speed}}">
+							</div>
+
+							<h2 class="title-box"><strong>Cấu hình HASS</strong></h2>
+							<div class="text-input-config">
+								Bật điều khiển Home_Assistant(on/off): <span style="color:#e74c3c;">{{Home_Assistant_control}}</span> <input name="Home_Assistant_control" placeholder="{{Home_Assistant_control}}">
+								Liên kết ngoài: <span style="color:#e74c3c;">{{external_url}}</span> <input name="external_url" placeholder="{{external_url}}">
+								Liên kết nội bộ: <span style="color:#e74c3c;">{{internal_url}}</span> <input name="internal_url" placeholder="{{internal_url}}">
+								Độ chính xác: <span style="color:#e74c3c;">{{ratiohass}}</span> <input name="ratiohass" placeholder="{{ratiohass}}">
+								Long-lived token </span> <input name="tokenhass" placeholder="{{tokenhass}}">
+							</div>
+
+							<h2 class="title-box"><strong>Cấu hình lED</strong></h2>
+							<div class="text-input-config">
+								Bật điều khiển đèn led (on/off): <span style="color:#e74c3c;">{{mic}}</span> <input name="mic" placeholder="{{mic}}">
+								Loại led (R2M, R4M, WS2, RUM,GEN, GGH)): <span style="color:#e74c3c;">{{led}}</span> <input name="led" placeholder="{{led}}">
+								Số đèn led: <span style="color:#e74c3c;">{{pixels}}</span> <input name="pixels" placeholder="{{pixels}}">
+							</div>
+
+							<h2 class="title-box"><strong>Cấu hình GPIOs</strong></h2>
+							<div class="text-input-config">
+								Bật điều khiển GPIOs (on/off): <span style="color:#e74c3c;">{{control}}</span> <input name="control" placeholder="{{control}}">
+								Cấu hình mức logic GPIOs (0 or 1): <span style="color:#e74c3c;">{{gpio_logic}}</span> <input name="gpio_logic" placeholder="{{gpio_logic}}">
+								Phím Up - Stop (nếu không sử dụng điền số 0 ): <span style="color:#e74c3c;">{{gpio_up}}</span> <input name="gpio_up" placeholder="{{gpio_up}}">
+								Phím Down - Assistant (nếu không sử dụng điền số 0 ): <span style="color:#e74c3c;">{{gpio_down}}</span> <input name="gpio_down" placeholder="{{gpio_down}}">
+								Phím Left - Giảm Volume (nếu không sử dụng điền số 0 ): <span style="color:#e74c3c;">{{gpio_left}}</span> <input name="gpio_left" placeholder="{{gpio_left}}">
+								Phím Right - Tăng Volume (nếu không sử dụng điền số 0 ): <span style="color:#e74c3c;">{{gpio_right}}</span> <input name="gpio_right" placeholder="{{gpio_right}}">
+							<button class="btn-submit reading-btn" type="submit">Lưu cấu hình</button>
+							</div>	
+						</form>
+					</div>	
+				</div>
+			</div>
+			
+			<div class="col-12 col-lg-6">
+				<div class="col-content">
+					<h2 class="title-box">Cấu hình hệ thống</h2>
+					<section class="content-section system-config">
+						<div class="btn-group">
+							<form method="POST" action="interprer"> 
+								<button class="vipi-btn" type="submit" title="Thông dịch"><i class="fa fa-book" aria-hidden="true"></i></button>
+								<small>Thông dịch</small>
+							</form>
+								<form method="POST" action="killpython"> 
+								<button class="vipi-btn" type="submit" title="Tắt tiến trình"><i class="fa fa-plug" aria-hidden="true"></i></button> 
+								<small>Tắt tiến trình</small>
+							</form>
+						</div>
+						<div class="btn-group">
+							<form method="POST" action="update"> 
+								<button class="vipi-btn" type="submit" title="Cập nhật"><i class="fa fa-globe" aria-hidden="true"></i></button>
+								<small>Cập nhật</small>
+							</form>
+						</div>	
+						<div class="btn-group">
+							<form method="POST" action="reboot"> 
+								<button class="vipi-btn" type="submit" title="Reboot"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+								<small>Reboot</small>
+							</form>
+							<form method="POST" action="shutdown"> 
+								<button class="vipi-btn" type="submit" title="Shutdown"><i class="fa fa-power-off" aria-hidden="true"></i></button> 
+								<small>Shutdown</small>
+							</form>
+						</div>
+					</section>
+					
+					<h2 class="title-box">Cấu hình TTS</h2>
+					<label for="leftDropdown">Chọn TTS:</label>
+					  <select id="leftDropdown" onchange="updateRightDropdown()">
+						<option value="GTTS">GTTS</option>
+						<option value="ZTTS">ZTTS</option>
+						<option value="ETTS">ETTS</option>
+					  </select>
+				  
+					<label for="rightDropdown">Giọng đọc:</label>
+					<select id="rightDropdown"></select>
+					<small>Nghe thử giọng đọc GTTS <a href="https://cloud.google.com/text-to-speech/docs/voices" target="_blank">tại đây</a></small>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	
+    <!-- Thêm hình ảnh hoặc nội dung muốn hiển thị trong slider -->
+  </div>
+  <script>
+	$(document).ready(function() {
+		$(".input-toogle").click(function() {
+		  var input = jQuery(this).find("input");
+		  input.prop("checked", !input.prop("checked"));
+		});
+	});
+
+	$(document).ready(function() {
+		$(".toggleSwitch2").click(function() {
+		  var input = jQuery(this).find("Switch2");
+		  input.prop("checked", !input.prop("checked"));
+		});
+	});  
+	$(document).ready(function() {
+		$(".input-toogle4").click(function() {
+		  var input = jQuery(this).find("input4");
+		  input.prop("checked", !input.prop("checked"));
+		});
+	});
+	$(document).ready(function() {
+		$(".input-toogle3").click(function() {
+		  var input = jQuery(this).find("input3");
+		  input.prop("checked", !input.prop("checked"));
+		});
+	});
+	$(document).ready(function() {
+	  $('.input-toogle').click(function() {
+	   var b1_status = $('.b1_status').text();
+	   $.ajax({
+		url: "/b1",
+		type: "get",
+		 data: {b1_status: b1_status},
+		 success: function(response) {
+		  $(".b1_status").html(response);
+		 },
+		 error: function(xhr) {
+		  //Do Something to handle error
+		 }
+	   });
+	  });
+	});
+	
+	$(document).ready(function() {
+	  $('.toggleSwitch2').click(function() {
+	   var b2_status = $('.b2_status').text();
+	   $.ajax({
+		url: "/b2",
+		type: "get",
+		 data: {b2_status: b2_status},
+		 success: function(response) {
+		  $(".b2_status").html(response);
+		 },
+		 error: function(xhr) {
+		  //Do Something to handle error
+		 }
+	   });
+	  });
+	});
+	$(document).ready(function() {
+	  $('.input-toogle3').click(function() {
+	   var b3_status = $('.b3_status').text();
+	   $.ajax({
+		url: "/b3",
+		type: "get",
+		 data: {b3_status: b3_status},
+		 success: function(response) {
+		  $(".b3_status").html(response);
+		 },
+		 error: function(xhr) {
+		  //Do Something to handle error
+		 }
+	   });
+	  });
+	});
+	$(document).ready(function() {
+	  $('.input-toogle4').click(function() {
+	   var b4_status = $('.b4_status').text();
+	   $.ajax({
+		url: "/b4",
+		type: "get",
+		 data: {b4_status: b4_status},
+		 success: function(response) {
+		  $(".b2_status").html(response);
+		 },
+		 error: function(xhr) {
+		  //Do Something to handle error
+		 }
+	   });
+	  });
+	});
+ </script> 
+ <!-- Xử lý TTS -->
+   <script>
+    $(document).ready(function() {
+  // Gọi hàm để lấy trạng thái ban đầu từ file JSON
+  getDropdownState();
+
+  // Xử lý sự kiện thay đổi dropdown bên trái
+  $("#leftDropdown").change(function() {
+    updateRightDropdown();
+    saveDropdownState();
+  });
+
+  // Xử lý sự kiện thay đổi dropdown bên phải
+  $("#rightDropdown").change(function() {
+    saveDropdownState();
+  });
+});
+
+function updateRightDropdown() {
+  var leftDropdown = $("#leftDropdown");
+  var rightDropdown = $("#rightDropdown");
+
+  // Xóa tất cả các option trong dropdown bên phải
+  rightDropdown.empty();
+
+  // Lấy giá trị được chọn từ dropdown bên trái
+  var selectedValue = leftDropdown.val();
+
+  // Lấy dữ liệu tương ứng với giá trị đã chọn
+  var data = getDataForValue(selectedValue);
+
+  // Tạo và thêm các option mới vào dropdown bên phải
+  for (var i = 0; i < data.length; i++) {
+    var option = $("<option></option>").text(data[i]);
+    rightDropdown.append(option);
+  }
+}
+
+function getDataForValue(value) {
+  // Đây là ví dụ mảng dữ liệu, bạn có thể thay thế bằng dữ liệu thực tế của mình
+  var data = [];
+
+  if (value === "GTTS") {
+    data = ["vi-VN-Neural2-A", "vi-VN-Neural2-D", "vi-VN-Standard-A", "vi-VN-Standard-B", "vi-VN-Standard-C", "	vi-VN-Standard-D", "vi-VN-Wavenet-A", "vi-VN-Wavenet-B", "vi-VN-Wavenet-C", "vi-VN-Wavenet-D"];
+  } else if (value === "ZTTS") {
+    data = ["Option X", "Option Y", "Option Z"];
+  } else if (value === "ETTS") {
+    data = ["Option F", "Option G", "Option H"];
+  }
+
+  return data;
+}
+
+function saveDropdownState() {
+  var leftDropdown = $("#leftDropdown");
+  var rightDropdown = $("#rightDropdown");
+
+  var state = {
+    ttsValue: leftDropdown.val(),
+    voiceValue: rightDropdown.val()
+  };
+
+  // Gửi trạng thái dropdown lên server để lưu vào file JSON
+  $.ajax({
+    url: "/save-state",
+    type: "POST",
+    data: JSON.stringify(state),
+    contentType: "application/json",
+    success: function(response) {
+      console.log("Trạng thái đã được lưu thành công.");
+    },
+    error: function(error) {
+      console.log("Đã xảy ra lỗi trong quá trình lưu trạng thái.");
+    }
+  });
+}
+
+function getDropdownState() {
+  // Lấy trạng thái dropdown từ file JSON thông qua server
+  $.ajax({
+    url: "/get-state",
+    type: "GET",
+    success: function(response) {
+      // Thiết lập giá trị cho các dropdown dựa trên trạng thái lấy từ file JSON
+      var leftDropdown = $("#leftDropdown");
+      var rightDropdown = $("#rightDropdown");
+
+      leftDropdown.val(response.ttsValue);
+      updateRightDropdown();
+      rightDropdown.val(response.voiceValue);
+    },
+    error: function(error) {
+      console.log("Đã xảy ra lỗi trong quá trình lấy trạng thái.");
+    }
+  });
+}
+
+  </script>
+
+ 
+{% endblock %}
