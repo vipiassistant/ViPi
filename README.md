@@ -17,8 +17,81 @@ sudo nano /usr/share/alsa/alsa.conf
 tìm đến dòng số 14 "~/.asoundrc" và thêm # vào đầu để tắt .asoundrc
 
 ```
+chạy các lệnh sau để chạy thủ công
+```sh
+    source env/bin/activate
+    pkill -9 python
+    cd ViPi
+    cd src
+    python3 start.py
+```
 --------------------------
-# Revision: 30062023
+# Revision: 13-12-2024.
+--------------------------
+* Fix lỗi tìm kiếm nhạc
+
+chạy các lệnh sau
+```sh
+    source env/bin/activate
+    pip install yt_dlp
+```
+--------------------------
+# Revision: 07-11-2023.
+--------------------------
+* Update MQTT cho Bot để phát thông báo từ Hass sang Bot
+* Có thể phát bằng API nhưng lười
+
+Cài đặt trong config.json trong Bot:
+```sh
+    "MQTT": {
+        "control": "on",
+        "mqtt_bocker": "192.168.1.150",
+        "mqtt_topic": "my/mqtt/topic",
+        "username": "pi",
+        "password": "abc123"
+    },
+```
+
+cài đặt trong Hass:
+```sh
+script:
+  #Scrip phát thông báo ra loa ViPi
+  phat_loa_vipi:
+    alias: "scrip phat loa vipi"
+    sequence:
+      - service: mqtt.publish
+        data_template:
+          topic: "my/mqtt/topic"  # Chủ đề MQTT bạn muốn sử dụng
+          payload: "{{ message }}"
+  #Scrip test phát thông báo ra loa ViPi
+  test_play_vipi:
+    alias: "test scrip phát qua loa vipi"
+    sequence:
+      - service: script.phat_loa_vipi
+        data:
+          message: 'đây là scrip test phát nội dung ra loa vipi'
+#Auto phát nội dung ra loa
+automation:
+  - alias: Phát cảnh báo khi đèn thay đổi trạng thái
+    trigger:
+      - platform: state
+        entity_id: switch.sw_staire_1_right
+    action:
+      - service: script.phat_loa_vipi
+        data_template:
+          message: >
+            Đèn cầu thang đã {{ 'bật' if is_state('switch.sw_staire_1_right', 'on') else 'tắt' }}.
+```
+--------------------------
+# Revision: 05-09-2023.
+--------------------------
+* Thay đổi hiệu ứng Led APA Echo, bổ sung Màu cho led âm lượng, thêm trạng thái đèn led nhấp nháy khi có lỗi xảy ra
+* Đơn giản cách thức hoạt động của cus_skill
+* Thay đổi giao diện mới (+ thêm nhiều lỗi mới)
+* Thay đổi nguồn tìm kiếm nhạc mặc định sang Youtube
+
+--------------------------
+# Revision: 30-06-2023
 --------------------------
 * Để dùng bản mới nhất vui lòng bấm cập nhật trên Wed: IP:8888 hoặc hostname:8888
  * Mặc định phím bấm, Để thay đổi vào setting cài đặt lại
@@ -40,7 +113,7 @@ Ví dụ: Tèo ơi, phát bài hát hai mùa mưa trên Youtube
        vipi ơi, phát bài hát hai mùa mưa trên du tút
 ```
 --------------------------
-# Revision: 19052023
+# Revision: 19-05-2023
 --------------------------
  * Thay đổi sang môi trường Virtual Environment 
  Mở terminal và kích hoạt môi trường ảo bằng lệnh:
