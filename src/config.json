@@ -152,7 +152,7 @@
         "Wakeword_Engine_Google": "off",
         "Wakeword_Engine_Picovoice": "on",
         "wakeword_models": "vi",
-        "access_key": "ig4J30nReYupu9q6sDv0dIsYVo0i6SBbIHIaq8i931KBYygRH58SeA==",
+        "access_key": "ig4J30nReYupu9q6sDv0dIsYVo0i6SBbIHIaq8i931KBYy-------",
         "sensitivities": 0.3
     },
     "Weather": {
