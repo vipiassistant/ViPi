@@ -30,11 +30,12 @@ chạy các lệnh sau để chạy thủ công
 # Revision: 13-12-2024.
 --------------------------
 * Fix lỗi tìm kiếm nhạc
-
+* Update Gemini API
 chạy các lệnh sau
 ```sh
     source env/bin/activate
     pip install yt_dlp
+    pip install -U google-generativeai
 ```
 --------------------------
 # Revision: 07-11-2023.
