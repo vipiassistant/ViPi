@@ -169,7 +169,7 @@
         "control": "on"
     },
     "led_setup": {
-        "control": "on",
+        "control": "off",
         "effect": "Echo",
         "pixels": 4,
         "type": "r4m"
