@@ -46,7 +46,7 @@
         ]
     },
     "Gpios": {
-        "control": "on",
+        "control": "off",
         "gpio_logic": 0,
         "gpio_down": 25,
         "gpio_left": 22,
@@ -130,7 +130,7 @@
         "Choice": "nữ google",
         "Speed": 0.9,
         "Quality": 1,
-        "Voice_Gender": "on",
+        "Voice_Gender": "off",
         "Voice_Region": "miền nam",
         "Zalo_API": [
             "E8mpp9RGC2rBAV6I58AXD3LFQtDXE9TS",
