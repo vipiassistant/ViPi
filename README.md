@@ -34,9 +34,14 @@ chạy các lệnh sau để chạy thủ công
 chạy các lệnh sau
 ```sh
     source env/bin/activate
+    pip install --upgrade pip
     pip install yt_dlp
     pip install -U google-generativeai
 ```
+# Bắt đầu với API Gemini
+Truy cập vào Google AI Studio.
+Đăng nhập bằng tài khoản Google của bạn.
+Tạo khoá API, dán vào Vipi/src/config/apiGemini:"XXXXX'
 --------------------------
 # Revision: 07-11-2023.
 --------------------------
