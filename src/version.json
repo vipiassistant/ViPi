@@ -1,9 +1,9 @@
 {
   "Version": {
     "ViPi": "2.2",
-    "Revision": "13-12-2024",
+    "Revision": "15-12-2024",
     "Changelog": [
-      "Fix lỗi trình phát nhạc",
+      "tăng tốc xử lý",
       "Chúc bạn thành công"
     ]
   }
