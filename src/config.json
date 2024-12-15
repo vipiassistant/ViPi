@@ -1,5 +1,5 @@
 {
-    "Boss": "Hà Long",
+    "Boss": "tên bạn",
     "Pushbullet": {
         "Control": "off",
         "Names": [
@@ -130,7 +130,7 @@
         "Choice": "nữ google",
         "Speed": 0.9,
         "Quality": 1,
-        "Voice_Gender": "off",
+        "Voice_Gender": "on",
         "Voice_Region": "miền nam",
         "Zalo_API": [
             "E8mpp9RGC2rBAV6I58AXD3LFQtDXE9TS",
@@ -144,10 +144,8 @@
             "/home/pi/ViPi/resources/picovoice_models_en/alexa_raspberry-pi.ppn"
         ],
         "Picovoice_wakeword_models_vi": [
-            "/home/pi/ViPi/resources/picovoice_models_vi/Vi-pi-ơi_vn_raspberry-pi_v2_2_0.ppn",
             "/home/pi/ViPi/resources/picovoice_models_vi/Vi-bi-ơi_vn_raspberry-pi_v2_2_0.ppn",
-            "/home/pi/ViPi/resources/picovoice_models_vi/tèo-ơi_vn_raspberry-pi_v2_2_0.ppn",
-            "/home/pi/ViPi/resources/picovoice_models_vi/gấu-ơi_vn_raspberry-pi_v2_2_0.ppn"
+            "/home/pi/ViPi/resources/picovoice_models_vi/tèo-ơi_vn_raspberry-pi_v2_2_0.ppn"
         ],
         "Wakeword_Engine_Google": "off",
         "Wakeword_Engine_Picovoice": "on",
