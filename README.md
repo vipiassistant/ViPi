@@ -39,9 +39,9 @@ chạy các lệnh sau
     pip install -U google-generativeai
 ```
 # Bắt đầu với API Gemini
-Truy cập vào Google AI Studio.
-Đăng nhập bằng tài khoản Google của bạn.
-Tạo khoá API, dán vào Vipi/src/config/apiGemini:"XXXXX'
+* Truy cập vào Google AI Studio.
+* Đăng nhập bằng tài khoản Google của bạn.
+* Tạo khoá API, dán vào Vipi/src/config/apiGemini:"XXXXX'
 --------------------------
 # Revision: 07-11-2023.
 --------------------------
