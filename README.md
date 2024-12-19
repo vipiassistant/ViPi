@@ -26,31 +26,6 @@ tìm đến dòng số 14 "~/.asoundrc" và thêm # vào đầu để tắt .aso
 
 ```
 # Xóa ViPi cũ và clone code mới về:
-
-Dưới đây là nội dung README đã cập nhật để giữ đúng định dạng với các phần trong khung code:
-
-markdown
-Sao chép mã
-# ViPi Assistant
-
-IMG đã cài driver Mic USB: https://drive.google.com/file/d/1YFjD6JKGK988xVYs0a4X9dlci9CsNG4Q/view?usp=sharing  
-IMG đã cài driver Mic I2S: https://drive.google.com/file/d/1kYYMQDG7XgeOlvEzkzaJaYIteIJmDFv3/view?usp=drive_link
-
-- Linux kernel 5.15.84  
-- User/pass Pi :(pi/raspberry)
-
-## Để dùng với MicReSpeaker hãy chạy các lệnh sau:
-```sh
-cd /home/${USER}/
-git clone https://github.com/HinTak/seeed-voicecard
-cd seeed-voicecard
-sudo ./install.sh
-
-sudo nano /usr/share/alsa/alsa.conf
-```
-tìm đến dòng số 14 "~/.asoundrc" và thêm # vào đầu để tắt .asoundrc
-
-# Xóa ViPi cũ và clone code mới về:
 sh
 ```sh
 rm -rf /home/pi/ViPi
