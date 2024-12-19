@@ -37,6 +37,7 @@ sudo reboot
  * Chúc bạn thành công
    
 # Để chạy thủ công:
+Vào IP_ADDRESS:9001 (user/pass: vipi/vipi) stop chương trình:
 ```sh
     source env/bin/activate
     pkill -9 python
