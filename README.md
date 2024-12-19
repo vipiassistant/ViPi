@@ -21,10 +21,9 @@ cd seeed-voicecard
 sudo ./install.sh
 
 sudo nano /usr/share/alsa/alsa.conf
-
+```
 tìm đến dòng số 14 "~/.asoundrc" và thêm # vào đầu để tắt .asoundrc
 
-```
 # Xóa ViPi cũ và clone code mới về:
 sh
 ```sh
@@ -32,10 +31,10 @@ rm -rf /home/pi/ViPi
 git clone https://github.com/vipiassistant/ViPi.git /home/pi/ViPi
 sudo reboot
 ```
- * Để dùng bản mới nhất vui lòng bấm cập nhật trên Wed: IP:8888
- * Để xem hoạt đông vào Wed tại địa chỉ: IP:9001 (user/pass: vipi/vipi)
+ * Để dùng bản mới nhất vui lòng bấm cập nhật trên Wed: IP_ADDRESS:8888
+ * Để xem hoạt đông vào Wed tại địa chỉ: IP_ADDRESS:9001 (user/pass: vipi/vipi)
  * Truy cập: https://console.picovoice.ai/ để lấy AccessKey
- * Truy cập : IP:8888 để dán AccessKey vừa tạo vào cài đặt khởi động lại
+ * Truy cập : IP_ADDRESS:8888 để dán AccessKey vừa tạo vào cài đặt khởi động lại
  * Chúc bạn thành công
    
 # Để chạy thủ công:
