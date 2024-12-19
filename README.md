@@ -22,7 +22,7 @@ sudo ./install.sh
 
 sudo nano /usr/share/alsa/alsa.conf
 ```
-tìm đến dòng số 14 "~/.asoundrc" và thêm # vào đầu để tắt .asoundrc
+tìm đến dòng số 14 "~/.asoundrc" và thêm # vào đầu để tắt .asoundrc xomh rồi "sudo reboot"
 
 # Xóa ViPi cũ và clone code mới về:
 ```sh
