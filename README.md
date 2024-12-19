@@ -26,6 +26,7 @@ tìm đến dòng số 14 "~/.asoundrc" và thêm # vào đầu để tắt .aso
 
 # Xóa ViPi cũ và clone code mới về:
 ```sh
+cd /home/${USER}/
 rm -rf /home/pi/ViPi
 git clone https://github.com/vipiassistant/ViPi.git /home/pi/ViPi
 sudo reboot
@@ -39,11 +40,12 @@ sudo reboot
 # Để chạy thủ công:
 Vào IP_ADDRESS:9001 (user/pass: vipi/vipi) stop chương trình:
 ```sh
-    source env/bin/activate
-    pkill -9 python
-    cd ViPi
-    cd src
-    python3 start.py
+cd /home/${USER}/
+source env/bin/activate
+pkill -9 python
+cd ViPi
+cd src
+python3 start.py
 ```
 
 --------------------------
@@ -53,9 +55,10 @@ Vào IP_ADDRESS:9001 (user/pass: vipi/vipi) stop chương trình:
 * Update Gemini API
 chạy các lệnh sau
 ```sh
-    source env/bin/activate
-    pip install --upgrade pip
-    pip install yt_dlp
+cd /home/${USER}/
+source env/bin/activate
+pip install --upgrade pip
+pip install yt_dlp
 ```
 # Bắt đầu với API Gemini
 * Truy cập vào Google AI Studio.
