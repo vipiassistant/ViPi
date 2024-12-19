@@ -25,7 +25,6 @@ sudo nano /usr/share/alsa/alsa.conf
 tìm đến dòng số 14 "~/.asoundrc" và thêm # vào đầu để tắt .asoundrc
 
 # Xóa ViPi cũ và clone code mới về:
-sh
 ```sh
 rm -rf /home/pi/ViPi
 git clone https://github.com/vipiassistant/ViPi.git /home/pi/ViPi
