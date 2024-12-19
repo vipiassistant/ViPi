@@ -5,6 +5,13 @@ IMG đã cài driver Mic I2S: https://drive.google.com/file/d/1kYYMQDG7XgeOlvEzk
 
  - Linux kernel 5.15.84 
  - User/pass Pi :(pi/raspberry)
+# Kết nối SSH vào Raspberry Pi:
+Đảm bảo Raspberry Pi đã bật SSH.
+Dùng terminal hoặc công cụ SSH client (như PuTTY) để kết nối:
+```sh
+ssh pi@<IP_ADDRESS>
+User/pass Pi :(pi/raspberry)
+```
 
 # Để dùng với MicReSpeaker hãy chạy các lệnh sau:
 ```sh
@@ -18,7 +25,45 @@ sudo nano /usr/share/alsa/alsa.conf
 tìm đến dòng số 14 "~/.asoundrc" và thêm # vào đầu để tắt .asoundrc
 
 ```
-chạy các lệnh sau để chạy thủ công
+# Xóa ViPi cũ và clone code mới về:
+
+Dưới đây là nội dung README đã cập nhật để giữ đúng định dạng với các phần trong khung code:
+
+markdown
+Sao chép mã
+# ViPi Assistant
+
+IMG đã cài driver Mic USB: https://drive.google.com/file/d/1YFjD6JKGK988xVYs0a4X9dlci9CsNG4Q/view?usp=sharing  
+IMG đã cài driver Mic I2S: https://drive.google.com/file/d/1kYYMQDG7XgeOlvEzkzaJaYIteIJmDFv3/view?usp=drive_link
+
+- Linux kernel 5.15.84  
+- User/pass Pi :(pi/raspberry)
+
+## Để dùng với MicReSpeaker hãy chạy các lệnh sau:
+```sh
+cd /home/${USER}/
+git clone https://github.com/HinTak/seeed-voicecard
+cd seeed-voicecard
+sudo ./install.sh
+
+sudo nano /usr/share/alsa/alsa.conf
+```
+tìm đến dòng số 14 "~/.asoundrc" và thêm # vào đầu để tắt .asoundrc
+
+# Xóa ViPi cũ và clone code mới về:
+sh
+```sh
+rm -rf /home/pi/ViPi
+git clone https://github.com/vipiassistant/ViPi.git /home/pi/ViPi
+sudo reboot
+```
+ * Để dùng bản mới nhất vui lòng bấm cập nhật trên Wed: IP:8888
+ * Để xem hoạt đông vào Wed tại địa chỉ: IP:9001 (user/pass: vipi/vipi)
+ * Truy cập: https://console.picovoice.ai/ để lấy AccessKey
+ * Truy cập : IP:8888 để dán AccessKey vừa tạo vào cài đặt khởi động lại
+ * Chúc bạn thành công
+   
+# Để chạy thủ công:
 ```sh
     source env/bin/activate
     pkill -9 python
@@ -26,6 +71,7 @@ chạy các lệnh sau để chạy thủ công
     cd src
     python3 start.py
 ```
+
 --------------------------
 # Revision: 13-12-2024.
 --------------------------
@@ -36,7 +82,6 @@ chạy các lệnh sau
     source env/bin/activate
     pip install --upgrade pip
     pip install yt_dlp
-    pip install -U google-generativeai
 ```
 # Bắt đầu với API Gemini
 * Truy cập vào Google AI Studio.
