@@ -1,9 +1,13 @@
 # ViPi Assistant
 
-IMG đã cài driver Mic USB: https://drive.google.com/file/d/1YFjD6JKGK988xVYs0a4X9dlci9CsNG4Q/view?usp=sharing  
-IMG đã cài driver Mic I2S: https://drive.google.com/file/d/1kYYMQDG7XgeOlvEzkzaJaYIteIJmDFv3/view?usp=drive_link
+IMG đã cài driver Mic USB: 
+https://drive.google.com/file/d/1YFjD6JKGK988xVYs0a4X9dlci9CsNG4Q/view?usp=sharing
 
-IMG đã cài Google Drive MIC 2 HATs new 22-12-2024: https://drive.google.com/file/d/16UJK7hH8EPBpHvvVJD5qkbRXBiWYeh4i/view
+IMG đã cài driver Mic I2S: 
+https://drive.google.com/file/d/1kYYMQDG7XgeOlvEzkzaJaYIteIJmDFv3/view?usp=drive_link
+
+IMG đã cài drive MIC 2 HATs new 22-12-2024: 
+https://drive.google.com/file/d/16UJK7hH8EPBpHvvVJD5qkbRXBiWYeh4i/view
 
  - Linux kernel 5.15.84 
  - User/pass Pi :(pi/raspberry)
