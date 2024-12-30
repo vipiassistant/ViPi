@@ -227,5 +227,5 @@ Ví dụ: Tèo ơi, phát bài hát hai mùa mưa trên Youtube
      - Vi Pi ơi, đổi giọng edge nam
      - Vi Pi ơi, đổi giọng zalo nam
      - Vi Pi ơi, đổi giọng google nam
-## Email liên hệ:  vipi.tearm@gmail.com
+## Email liên hệ:  vipi.team@gmail.com
 ## Facebook: https://www.facebook.com/groups/285131860062315/
