@@ -30,7 +30,7 @@ sudo nano /usr/share/alsa/alsa.conf
 ```
 tìm đến dòng số 14 "~/.asoundrc" và thêm # vào đầu để tắt .asoundrc xomh rồi "sudo reboot"
 
-# Xóa ViPi cũ và clone code mới về:
+# Để cập nhật lần đầu bản mới nhất hãy thực hiện như sau:
 ```sh
 cd /home/${USER}/
 rm -rf /home/pi/ViPi
@@ -65,6 +65,7 @@ cd /home/${USER}/
 source env/bin/activate
 pip install --upgrade pip
 pip install yt_dlp
+pip install ujson
 ```
 # Bắt đầu với API Gemini
 * Truy cập vào Google AI Studio.
