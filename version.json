@@ -1,10 +1,20 @@
 {
   "Version": {
-    "ViPi": "2.2",
+    "ViPi": "2.1",
     "Revision": "10-01-2025",
     "Changelog": [
-      "Fix lỗi trình phát nhạc",
-      "Chúc bạn thành công"
+      "Tăng tốc độ xử lý"
+    ],
+    "Requirements": [
+      "requests>=2.28.0",
+      "gitpython>=3.1.32",
+      "flask>=2.3.0"
+    ],
+    "SystemRequirements": [
+      "git",
+      "python3-pip",
+      "libffi-dev",
+      "libssl-dev"
     ]
   }
 }
