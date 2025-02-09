@@ -56,7 +56,7 @@ python3 start.py
 --------------------------
 # Revision: 09-02-2025.
 --------------------------
-* Update picovoice==3.0.0 lưu ý chọn nhánh Beta
+* Update picovoice==3.0.0 lưu ý chọn nhánh picovoice==3.0.0 
 * Update hiệu ứng led ring (only W2812)
 chạy các lệnh sau
 ```sh
