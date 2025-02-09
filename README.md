@@ -53,7 +53,20 @@ cd ViPi
 cd src
 python3 start.py
 ```
-
+--------------------------
+# Revision: 09-02-2025.
+--------------------------
+* Update picovoice==3.0.0 lưu ý chọn nhánh Beta
+* Update hiệu ứng led ring (only W2812)
+chạy các lệnh sau
+```sh
+cd /home/${USER}/
+source env/bin/activate
+pip install --upgrade pip
+pip install yt_dlp
+pip install ujson
+pip install --upgrade picovoice==3.0.0
+```
 --------------------------
 # Revision: 13-12-2024.
 --------------------------
