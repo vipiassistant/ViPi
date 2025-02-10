@@ -30,7 +30,7 @@ sudo nano /usr/share/alsa/alsa.conf
 ```
 tìm đến dòng số 14 "~/.asoundrc" và thêm # vào đầu để tắt .asoundrc xomh rồi "sudo reboot"
 
-# Để cập nhật lần đầu bản mới nhất hãy thực hiện như sau:
+# Để cập nhật cho lần đầu tiên sau khi flash thẻ thực hiện như sau: các lần sau sử dụng lệnh update trong phần mềm:
 ```sh
 cd /home/${USER}/
 rm -rf /home/pi/ViPi
@@ -56,7 +56,7 @@ python3 start.py
 --------------------------
 # Revision: 09-02-2025.
 --------------------------
-* Update picovoice==3.0.0 lưu ý chọn nhánh picovoice==3.0.0 
+* Update picovoice==3.0.0 lưu ý chọn nhánh git V3
 * Update hiệu ứng led ring (only W2812)
 chạy các lệnh sau
 ```sh
