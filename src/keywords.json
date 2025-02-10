@@ -3,6 +3,7 @@
 		"skill__lunar__calendar": [
 			"ngày âm",
 			"lịch âm",
+			"âm lịch",
 			"mồng mấy",
 			"mùng mấy"
 		],
@@ -42,6 +43,14 @@
 			"phát thanh",
 			"tin mới",
 			"tin tức"
+		],
+		"skill__news__play": [
+			"báo tuổi trẻ",
+			"báo thanh niên",
+			"báo việt nam ExPress",
+			"báo VietNamNet",
+			"Báo Mới",
+			"Tiền Phong"
 		],
 		"skill__radio__play": [
 			"nghe đài",
