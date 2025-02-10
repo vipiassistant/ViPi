@@ -66,7 +66,7 @@
         "mqtt_bocker": "192.168.1.150",
         "mqtt_topic": "my/mqtt/topic",
         "username": "pi",
-        "password": "Viettel789"
+        "password": "abcl789"
     },
     "IR": {
         "Control": "off",
@@ -144,8 +144,8 @@
             "/home/pi/ViPi/resources/picovoice_models_en/alexa_raspberry-pi.ppn"
         ],
         "Picovoice_wakeword_models_vi": [
-            "/home/pi/ViPi/resources/picovoice_models_vi/Vi-bi-ơi_vn_raspberry-pi_v2_2_0.ppn",
-            "/home/pi/ViPi/resources/picovoice_models_vi/tèo-ơi_vn_raspberry-pi_v2_2_0.ppn"
+            "/home/pi/ViPi/resources/picovoice_models_vi/bi-ơi_vn_raspberry-pi_v3_0_0.ppn",
+            "/home/pi/ViPi/resources/picovoice_models_vi/tèo-ơi_vn_raspberry-pi_v3_0_0.ppn"
         ],
         "Wakeword_Engine_Google": "off",
         "Wakeword_Engine_Picovoice": "on",
