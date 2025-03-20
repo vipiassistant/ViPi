@@ -66,7 +66,7 @@ pip install psutil pvporcupine==3.0.0 numpy
 # Cài đặt các gói từ pip.txt nếu có
 if [ -f "/home/pi/ViPi/scripts/pip.txt" ]; then
     echo "Cài đặt gói Python từ pip.txt..."
-    pip install -r /home/pi/ViPi/scripts/pip.txt
+    #pip install -r /home/pi/ViPi/scripts/pip.txt
 else
     echo "Không tìm thấy file pip.txt, bỏ qua..."
 fi
