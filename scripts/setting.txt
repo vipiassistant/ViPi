@@ -1,1 +1,3 @@
-
+#Cài đăị WIFI HOSTPOST!
+chmod +x ViPi/scripts/install_wifi_connect.sh
+sudo ViPi/scripts/install_wifi_connect.sh
