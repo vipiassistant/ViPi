@@ -66,22 +66,18 @@ pip install --upgrade pip
 # Danh sách thư viện Python cần cài đặt
 PYTHON_LIBS=(
     ujson pathlib2 pyaudio soundfile python-vlc pydub tenacity sounddevice gtts
-    rapidfuzz yt_dlp youtube-search-python bs4 pychromecast SpeechRecognition
+    rapidfuzz yt_dlp youtube-search-python bs4 pychromecast
     git+https://github.com/Uberi/speech_recognition.git gitpython
     git+https://github.com/googleapis/google-api-python-client.git
     pyyaml validators html2text mutagen paho-mqtt edge-tts psutil numpy h5py
     typing-extensions wheel pvporcupine==3.0.0
-    gTTS==2.2.1 gTTS-token>=1.1.3 youtube_dl>=2018.11.23 PyChromecast==9.1.2
-    psutil>=5.4.8 urllib3>=1.24.1 google-api-python-client>=1.7.5
-    requests>=2.20.1 python-vlc>=3.0.4106 pyyaml>=3.13 spidev>=3.2
-    gpiozero>=1.4.1 numpy==1.21.1 pycryptodomex==3.7.2 googletrans==3.1.0a0
-    google-cloud-texttospeech==0.3.0 google-cloud-speech==0.36.0 adafruit-io==2.1
-    pywemo==0.4.39 cryptography==3.3.2 mock==3.0.5 oauth2client
-    pvporcupine==1.9.5 grpcio==1.43.0 pyusb futures==3.1.1 fuzzywuzzy
-    termcolor pyusb python-vlc>=3.0.4106 rpi-ws281x fuzzywuzzy
+    gTTS gTTS-token youtube_dl PyChromecast==9.1.2
+    psutil urllib3 requests python-vlc pyyaml spidev
+    gpiozero pycryptodomex==3.7.2 adafruit-io==2.1
+    pywemo==0.4.39 cryptography==3.3.2 mock==3.0.5
+    pyusb futures==3.1.1 fuzzywuzzy termcolor python-vlc rpi-ws281x
     python-Levenshtein mutagen youtube-search-python flask flask-bootstrap
-    flask-restful cherrypy git+https://github.com/thangnd85/yaml_editor
-    aftership feedparser fp free-proxy supervisor flask_restful flask_bootstrap
+    flask-restful cherrypy aftership feedparser fp free-proxy
 )
 
 # Kiểm tra & cài đặt từng thư viện Python
