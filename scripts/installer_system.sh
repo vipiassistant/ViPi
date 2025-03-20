@@ -8,18 +8,6 @@ else
     CONFIG_PATH="/boot/config.txt"
 fi
 
-echo "======================================="
-echo "  Trình cài đặt hệ thống & môi trường"
-echo "======================================="
-echo ""
-
-# Xác nhận trước khi cài đặt
-read -p "❓ Bạn có muốn tiếp tục cài đặt? (y/n): " confirm
-if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
-    echo "❌ Hủy bỏ cài đặt."
-    exit 0
-fi
-
 echo -e "\n======================================="
 echo "  🔄 Cập nhật hệ thống và cài đặt gói cần thiết"
 echo "======================================="
