@@ -1,6 +1,29 @@
-- Kính gửi Anh!
- Sau khi kiểm tra anh có gửi cho em PL thiết bị chưa khép kín quy trình, Em đã điều hành GĐ cụm thực hiện khép kín quy trình
- Hiện tại em kiểm tra lại trên Phần mềm còn 19 Thiết bị chưa khép kín Quy trình (trong đó 16 thiết bị lỗi do SAP thiếu mã cha chưa khép kín quy trình , còn 3 thiết bị chưa được xử lý (chi tiết em gửi kèm theo file)
-- Kính nhờ Anh giảm trừ giúp số Thiết bị đã xử lý, còn lại đưa vào biên bản 13 Thiết bị với nội dung như trên!
-Cảm ơn Anh rất nhiều!
+#!/usr/bin/bash
+
+# export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
+# ^^^ this can cause barfing and isn't needed
+
+# Choose a condition for running WiFi Connect according to your use case:
+
+# 1. Is there a default gateway?
+# ip route | grep default
+
+# 2. Is there Internet connectivity?
+# nmcli -t g | grep full
+
+# 3. Is there Internet connectivity via a google ping?
+# wget --spider http://google.com 2>&1
+
+# 4. Is there an active WiFi connection?
+sleep 30
+iwgetid -r
+
+if [ $? -eq 0 ]; then
+    printf 'Skipping WiFi Connect\n'
+else
+    printf 'Starting WiFi Connect\n'
+    wifi-connect -s ViPi
+fi
+
+# Start your application here.
  
