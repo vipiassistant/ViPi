@@ -1,9 +1,32 @@
 #!/bin/bash
 
-echo "Trình cài đặt WIFI connect"
+echo "======================================="
+echo "  Trình cài đặt WiFi Connect"
+echo "======================================="
 echo ""
 
-sudo mv ViPi/scripts/wifi-connect-start.service /lib/systemd/system/wifi-connect-start.service
+# Hỏi người dùng có muốn tiếp tục cài đặt không
+read -p "Bạn có muốn tiếp tục cài đặt? (y/n): " confirm
+if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
+    echo "Hủy bỏ cài đặt."
+    exit 0
+fi
+
+echo ""
+echo "Đang kiểm tra và di chuyển file cấu hình WiFi Connect..."
+echo ""
+
+# Kiểm tra nếu file service đã tồn tại, nếu có thì bỏ qua
+SERVICE_FILE="/lib/systemd/system/wifi-connect-start.service"
+if [ ! -f "$SERVICE_FILE" ]; then
+    echo "Di chuyển file wifi-connect-start.service..."
+    sudo mv ViPi/scripts/wifi-connect-start.service "$SERVICE_FILE"
+else
+    echo "File wifi-connect-start.service đã tồn tại, bỏ qua..."
+fi
+
+# Kích hoạt và khởi động dịch vụ
+echo "Kích hoạt dịch vụ WiFi Connect..."
 sudo systemctl enable wifi-connect-start.service
 sudo systemctl start wifi-connect-start.service
 
@@ -91,7 +114,7 @@ install_wfc() {
     sudo cp "$_download_dir/wifi-connect" $INSTALL_BIN_DIR
     sudo mkdir -p $INSTALL_UI_DIR
     sudo rm -rdf $INSTALL_UI_DIR
-    sudo cp ViPi/scripts/ui $INSTALL_UI_DIR
+    sudo cp -r ViPi/scripts/ui $INSTALL_UI_DIR
     rm -rdf "$_download_dir"
 
     _wfc_version=$(wifi-connect --version)
@@ -123,4 +146,10 @@ err() {
 
 main "$@" || exit 1
 
-echo "Hoàn thành cài đặt, vui lòng reboot..."
+echo ""
+echo "======================================="
+echo "  Cài đặt hoàn tất!"
+echo "  Hệ thống sẽ khởi động lại sau 10 giây..."
+echo "======================================="
+sleep 10
+sudo reboot
