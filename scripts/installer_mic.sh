@@ -1,13 +1,21 @@
 #!/bin/bash
 
+# Kiểm tra quyền sudo
+if [[ $EUID -ne 0 ]]; then
+    echo "❌ Vui lòng chạy script với quyền root (sudo)."
+    exit 1
+fi
+
+# Xác định phiên bản OS
 OS_VERSION=$(lsb_release -c | awk '{print $2}')
 if [[ "$OS_VERSION" == "bookworm" ]]; then
     CONFIG_PATH="/boot/firmware/config.txt"
 else
     CONFIG_PATH="/boot/config.txt"
 fi
+
 echo "======================================="
-echo "         Trình cài đặt mic để cài đặt  "
+echo "         🎙 Trình cài đặt Mic "
 echo "======================================="
 echo "1️⃣ USB Mic"
 echo "2️⃣ ReSpeaker"
@@ -16,10 +24,19 @@ read -p "🔍 Vui lòng chọn mic (1-3): " MIC_CHOICE
 
 case $MIC_CHOICE in
     1)
+        echo "🔎 Đang kiểm tra thiết bị âm thanh..."
         arecord -l
-        read -p "Nhập số card USB mic: " MIC_NUMBER
+        read -p "🎙 Nhập số card USB mic: " MIC_NUMBER
         aplay -l
-        read -p "Nhập số card loa: " SPEAKER_NUMBER
+        read -p "🔊 Nhập số card loa: " SPEAKER_NUMBER
+
+        # Kiểm tra xem số card có tồn tại không
+        if ! arecord -l | grep -q "card $MIC_NUMBER:" || ! aplay -l | grep -q "card $SPEAKER_NUMBER:"; then
+            echo "❌ Lỗi: Số card không hợp lệ!"
+            exit 1
+        fi
+
+        echo "🔧 Cấu hình mic & loa..."
         sudo tee /etc/asound.conf > /dev/null <<EOT
 pcm.dsnooper {
     type dsnoop
@@ -43,13 +60,17 @@ pcm.!default {
     }
 }
 EOT
+        echo "✅ Cấu hình USB Mic hoàn tất!"
         ;;
     2)
+        echo "🔄 Đang tải về & cài đặt driver ReSpeaker..."
         git clone https://github.com/HinTak/seeed-voicecard
         cd seeed-voicecard
         sudo ./install.sh
+        echo "✅ Cài đặt ReSpeaker hoàn tất!"
         ;;
     3)
+        echo "🔧 Cấu hình Mic ViPi V3..."
         sudo tee /etc/asound.conf > /dev/null <<EOT
 options snd_rpi_googlemihat_soundcard index=0
 pcm.softvol {
@@ -78,15 +99,18 @@ ctl.!default {
     card sndrpigooglevoi
 }
 EOT
-        echo "dtoverlay=googlevoicehat-soundcard" | sudo tee -a "$CONFIG_PATH"
-        sudo sed -i -e "s/^dtparam=audio=on/#\0/" -e "s/^#\(dtparam=i2s=on\)/\1/" "$CONFIG_PATH"
-        grep -q "dtoverlay=i2s-mmap" "$CONFIG_PATH" || echo "dtoverlay=i2s-mmap" >> "$CONFIG_PATH"
-        grep -q "dtparam=i2s=on" "$CONFIG_PATH" || echo "dtparam=i2s=on" >> "$CONFIG_PATH"
+
+        echo "🔄 Cập nhật config.txt..."
+        grep -q "dtoverlay=googlevoicehat-soundcard" "$CONFIG_PATH" || echo "dtoverlay=googlevoicehat-soundcard" | sudo tee -a "$CONFIG_PATH"
+        grep -q "dtoverlay=i2s-mmap" "$CONFIG_PATH" || echo "dtoverlay=i2s-mmap" | sudo tee -a "$CONFIG_PATH"
+        grep -q "dtparam=i2s=on" "$CONFIG_PATH" || echo "dtparam=i2s=on" | sudo tee -a "$CONFIG_PATH"
+
         sudo tee -a "$CONFIG_PATH" > /dev/null <<EOT
 core_freq=250
 spidev.bufsiz=32768
 dtparam=i2s=on
 EOT
+        echo "✅ Cấu hình Mic ViPi V3 hoàn tất!"
         ;;
     *)
         echo "❌ Lựa chọn không hợp lệ!"
@@ -95,6 +119,6 @@ EOT
 esac
 
 echo "======================================="
-echo "  ✅ Cài đặt hoàn tất! Hệ thống sẽ khởi động lại sau 10 giây..."
+echo "  ✅ Cài đặt hoàn tất!"
 echo "======================================="
-sleep 10
+
