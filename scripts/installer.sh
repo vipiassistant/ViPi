@@ -1,73 +1,100 @@
 #!/bin/bash
 
-echo "======================================="
-echo "  🔧 Trình cài đặt ViPi"
-echo "======================================="
+# Mã màu ANSI
+GREEN='\033[0;32m'  # Xanh lá
+RED='\033[0;31m'    # Đỏ
+RESET='\033[0m'     # Reset màu về mặc định
+
+echo -e "${GREEN}=======================================${RESET}"
+echo -e "${GREEN}  🔧 Trình cài đặt ViPi${RESET}"
+echo -e "${GREEN}=======================================${RESET}"
 
 SCRIPTS_DIR="/home/pi/ViPi/scripts"
 
-# Kiểm tra thư mục scripts
+# Kiểm tra thư mục tồn tại
 if [ ! -d "$SCRIPTS_DIR" ]; then
-    echo "❌ Thư mục $SCRIPTS_DIR không tồn tại! Kiểm tra lại đường dẫn."
+    echo -e "❌ ${RED}Thư mục cài đặt $SCRIPTS_DIR không tồn tại, thoát trình cài đặt!${RESET}"
     exit 1
 fi
 
-# Xác nhận cài đặt hệ thống
-read -p "❓ Bạn có muốn cài đặt hệ thống không? (y/n): " install_system
-if [[ "$install_system" == "y" || "$install_system" == "Y" ]]; then
-    echo "======================================="
-    echo "  🔄 Đang cài đặt hệ thống..."
-    echo "======================================="
-    cd "$SCRIPTS_DIR"
-    chmod +x installer_system.sh
-    sudo ./installer_system.sh
-    echo "✅ Hệ thống đã được cài đặt thành công!"
+# Danh sách các script cài đặt
+declare -A INSTALL_SCRIPTS
+INSTALL_SCRIPTS["Hệ thống"]="installer_system.sh"
+INSTALL_SCRIPTS["Gói Python"]="installer_pip.sh"
+INSTALL_SCRIPTS["Mic"]="installer_mic.sh"
+INSTALL_SCRIPTS["WiFi Connect"]="install_wifi_connect.sh"  # WiFi Connect sẽ được cài cuối cùng
+
+# Hỏi người dùng có muốn cập nhật hệ thống trước không
+echo -e "\n🔄 ${GREEN}Bạn có muốn cập nhật hệ thống trước khi cài đặt không? (y/n)${RESET}"
+echo -e "👉 ${GREEN}Nếu không nhập gì sau 15 giây, mặc định sẽ cập nhật!${RESET}"
+
+UPDATE_CHOICE=""
+for ((i=15; i>0; i--)); do
+    echo -ne "\r⏳ Còn $i giây... "
+    read -t 1 -n 1 UPDATE_CHOICE
+    if [[ -n "$UPDATE_CHOICE" ]]; then
+        break
+    fi
+done
+echo
+
+if [[ -z "$UPDATE_CHOICE" || "$UPDATE_CHOICE" =~ ^[Yy]$ ]]; then
+    echo -e "🔄 ${GREEN}Đang cập nhật hệ thống...${RESET}"
+    sudo apt update && sudo apt upgrade -y
+    echo -e "✅ ${GREEN}Cập nhật hệ thống hoàn tất!${RESET}"
 else
-    echo "⚠️ Bỏ qua cài đặt hệ thống."
+    echo -e "⚠️ ${RED}Bỏ qua cập nhật hệ thống.${RESET}"
 fi
 
-# Cài đặt gói Python
-read -p "❓ Bạn có muốn tiếp tục cài đặt gói Python không? (y/n): " install_pip
-if [[ "$install_pip" == "y" || "$install_pip" == "Y" ]]; then
-    echo "======================================="
-    echo "  🔄 Đang cài đặt gói Python..."
-    echo "======================================="
-    cd "$SCRIPTS_DIR"
-    chmod +x installer_pip.sh
-    sudo ./installer_pip.sh
-    echo "✅ Gói Python đã được cài đặt thành công!"
-else
-    echo "⚠️ Bỏ qua cài đặt gói Python."
-fi
+# Cấp quyền thực thi cho tất cả script
+echo -e "\n🔄 ${GREEN}Đang cấp quyền thực thi cho các script...${RESET}"
+for script in "${INSTALL_SCRIPTS[@]}"; do
+    if [ -f "$SCRIPTS_DIR/$script" ]; then
+        chmod +x "$SCRIPTS_DIR/$script"
+    else
+        echo -e "⚠️ ${RED}Không tìm thấy $script, bỏ qua...${RESET}"
+    fi
+done
 
-# Cài đặt Mic
-read -p "❓ Bạn có muốn tiếp tục cài đặt cấu hình mic không? (y/n): " install_mic
-if [[ "$install_mic" == "y" || "$install_mic" == "Y" ]]; then
-    echo "======================================="
-    echo "  🔄 Đang cài đặt cấu hình Mic..."
-    echo "======================================="
-    cd "$SCRIPTS_DIR"
-    chmod +x installer_mic.sh
-    sudo ./installer_mic.sh
-    echo "✅ Mic đã được cài đặt thành công!"
-else
-    echo "⚠️ Bỏ qua cài đặt Mic."
-fi
+# Hàm cài đặt với đếm ngược
+auto_continue() {
+    local desc="$1"
+    local script="$2"
 
-# Cài đặt WiFi Connect
-read -p "❓ Bạn có muốn tiếp tục cài đặt WiFi Connect không? (y/n): " install_wifi
-if [[ "$install_wifi" == "y" || "$install_wifi" == "Y" ]]; then
-    echo "======================================="
-    echo "  🔄 Đang cài đặt WiFi Connect..."
-    echo "======================================="
-    cd "$SCRIPTS_DIR"
-    chmod +x installer_wifi_connect.sh
-    sudo ./installer_wifi_connect.sh
-    echo "✅ WiFi Connect đã được cài đặt thành công!"
-else
-    echo "⚠️ Bỏ qua cài đặt WiFi Connect."
-fi
+    # Kiểm tra script có tồn tại không
+    if [ ! -f "$SCRIPTS_DIR/$script" ]; then
+        echo -e "🚫 ${RED}Lỗi: Không tìm thấy $script! Bỏ qua...${RESET}"
+        return
+    fi
 
-echo "======================================="
-echo "  ✅ Hoàn tất quá trình cài đặt!"
-echo "======================================="
+    echo -e "\n❓ ${GREEN}Bạn có muốn cài đặt $desc không? (y/n)${RESET}"
+    echo -e "👉 ${GREEN}Nếu không nhập gì sau 30 giây, sẽ tự động cài đặt!${RESET}"
+
+    local user_input=""
+    for ((i=30; i>0; i--)); do
+        echo -ne "\r⏳ Còn $i giây... "
+        read -t 1 -n 1 user_input
+        if [[ -n "$user_input" ]]; then
+            break
+        fi
+    done
+    echo
+
+    if [[ -z "$user_input" || "$user_input" =~ ^[Yy]$ ]]; then
+        echo -e "🔄 ${GREEN}Đang cài đặt $desc...${RESET}"
+        sudo "$SCRIPTS_DIR/$script"
+        echo -e "✅ ${GREEN}Cài đặt $desc hoàn tất!${RESET}"
+    else
+        echo -e "⚠️ ${RED}Bỏ qua $desc.${RESET}"
+    fi
+}
+
+# Chạy lần lượt các bước cài đặt
+for key in "${!INSTALL_SCRIPTS[@]}"
+do
+    auto_continue "$key" "${INSTALL_SCRIPTS[$key]}"
+done
+
+echo -e "\n${GREEN}=======================================${RESET}"
+echo -e "  ✅ ${GREEN}Quá trình cài đặt hoàn tất!${RESET}"
+echo -e "${GREEN}=======================================${RESET}"
