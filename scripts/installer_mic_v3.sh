@@ -58,8 +58,8 @@ pcm.micboost {
     type route
     slave.pcm dsnoop
     ttable {
-        0.0 30.0
-        1.1 30.0
+        0.0 90.0
+        1.1 90.0
     }
 }
 
@@ -77,8 +77,8 @@ EOL
 
 # 6️⃣ Cài đặt thư viện Python
 echo "🐍 Cài đặt pip và thư viện Python..."
-pip3 install --upgrade pip
-pip3 install sounddevice pyaudio SpeechRecognition numpy rpi-ws281x
+#pip3 install --upgrade pip
+#pip3 install sounddevice pyaudio SpeechRecognition numpy rpi-ws281x
 
 # 7️⃣ Hoàn tất, yêu cầu khởi động lại
 echo "✅ Cài đặt hoàn tất! Hệ thống sẽ khởi động lại sau 10 giây..."
