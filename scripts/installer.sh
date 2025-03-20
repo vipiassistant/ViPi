@@ -55,8 +55,8 @@ if [[ "$install_mic" == "y" || "$install_mic" == "Y" ]]; then
     echo "  🔄 Đang cài đặt wifi_connect..."
     echo "======================================="
     cd /vipi/scripts/
-    chmod +x install_wifi.sh
-    sudo ./install_wifi.sh
+    chmod +x install_wifi_connect.sh.sh
+    sudo ./install_wifi_connect.sh.sh
     echo "✅ Mic đã được cài đặt thành công!"
 else
     echo "⚠️ Bỏ qua cài đặt wifi_connect."
