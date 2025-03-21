@@ -72,42 +72,31 @@ EOT
         echo "🔧 Cấu hình Mic ViPi V3..."
         sudo tee /etc/asound.conf > /dev/null <<EOT
 options snd_rpi_googlemihat_soundcard index=0
+
 pcm.softvol {
     type softvol
-    slave.pcm "dmix"
+    slave.pcm dmix
     control {
-        name "Master"
+        name Master
         card sndrpigooglevoi
     }
-    min_dB -51.0
-    max_dB 0.0
 }
-pc.dmixer {
-    type dmix
-    ipc_key 1024
-    ipc_perm 0666
-    slave {
-        pcm "hw:0,0"
-        rate 48000
-        periods 4
-        period_size 1024
-        buffer_size 8192
-        channels 2
-    }
-}
-pc.micboost {
+
+pcm.micboost {
     type route
-    slave.pcm "dsnoop"
+    slave.pcm dsnoop
     ttable {
-        0.0 80.0
-        1.1 80.0
+        0.0 30.0
+        1.1 30.0
     }
 }
-pc.!default {
+
+pcm.!default {
     type asym
     playback.pcm "plug:softvol"
     capture.pcm "plug:micboost"
 }
+
 ctl.!default {
     type hw
     card sndrpigooglevoi
