@@ -126,9 +126,9 @@ dtparam=i2s=on
 EOT
 
         echo "✅ Cấu hình Mic ViPi V3 hoàn tất!"
-        sudo tee /etc/systemd/system/aplay.service > /dev/null <<EOT
+        sudo tee /etc/systemd/system/noise.service > /dev/null <<EOT
 [Unit]
-Description=Play silence to prevent popping sounds
+Description=No pop noise
 After=sound.target
 
 [Service]
@@ -141,8 +141,8 @@ WantedBy=multi-user.target
 EOT
 
         sudo systemctl daemon-reload
-        sudo systemctl enable aplay.service
-        sudo systemctl restart aplay.service
+        sudo systemctl enable noise.service
+        sudo systemctl restart noise.service
         ;;
     *)
         echo "❌ Lựa chọn không hợp lệ!"
