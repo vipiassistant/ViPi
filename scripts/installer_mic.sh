@@ -30,7 +30,6 @@ case $MIC_CHOICE in
         aplay -l
         read -p "🔊 Nhập số card loa: " SPEAKER_NUMBER
 
-        # Kiểm tra xem số card có tồn tại không
         if ! arecord -l | grep -q "card $MIC_NUMBER:" || ! aplay -l | grep -q "card $SPEAKER_NUMBER:"; then
             echo "❌ Lỗi: Số card không hợp lệ!"
             exit 1
@@ -48,7 +47,7 @@ pcm.dsnooper {
         channels 1
     }
 }
-pcm.!default {
+pc.!default {
     type asym
     playback.pcm {
         type plug
@@ -75,21 +74,36 @@ EOT
 options snd_rpi_googlemihat_soundcard index=0
 pcm.softvol {
     type softvol
-    slave.pcm dmix
+    slave.pcm "dmix"
     control {
-        name Master
+        name "Master"
         card sndrpigooglevoi
     }
+    min_dB -51.0
+    max_dB 0.0
 }
-pcm.micboost {
-    type route
-    slave.pcm dsnoop
-    ttable {
-        0.0 90.0
-        1.1 90.0
+pc.dmixer {
+    type dmix
+    ipc_key 1024
+    ipc_perm 0666
+    slave {
+        pcm "hw:0,0"
+        rate 48000
+        periods 4
+        period_size 1024
+        buffer_size 8192
+        channels 2
     }
 }
-pcm.!default {
+pc.micboost {
+    type route
+    slave.pcm "dsnoop"
+    ttable {
+        0.0 80.0
+        1.1 80.0
+    }
+}
+pc.!default {
     type asym
     playback.pcm "plug:softvol"
     capture.pcm "plug:micboost"
@@ -99,18 +113,36 @@ ctl.!default {
     card sndrpigooglevoi
 }
 EOT
-
+        
         echo "🔄 Cập nhật config.txt..."
         grep -q "dtoverlay=googlevoicehat-soundcard" "$CONFIG_PATH" || echo "dtoverlay=googlevoicehat-soundcard" | sudo tee -a "$CONFIG_PATH"
         grep -q "dtoverlay=i2s-mmap" "$CONFIG_PATH" || echo "dtoverlay=i2s-mmap" | sudo tee -a "$CONFIG_PATH"
         grep -q "dtparam=i2s=on" "$CONFIG_PATH" || echo "dtparam=i2s=on" | sudo tee -a "$CONFIG_PATH"
-
+        
         sudo tee -a "$CONFIG_PATH" > /dev/null <<EOT
 core_freq=250
 spidev.bufsiz=32768
 dtparam=i2s=on
 EOT
+
         echo "✅ Cấu hình Mic ViPi V3 hoàn tất!"
+        sudo tee /etc/systemd/system/aplay.service > /dev/null <<EOT
+[Unit]
+Description=Play silence to prevent popping sounds
+After=sound.target
+
+[Service]
+ExecStart=/usr/bin/aplay -D default -t raw -r 48000 -c 2 -f S32_LE /dev/zero
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
+EOT
+
+        sudo systemctl daemon-reload
+        sudo systemctl enable aplay.service
+        sudo systemctl restart aplay.service
         ;;
     *)
         echo "❌ Lựa chọn không hợp lệ!"
