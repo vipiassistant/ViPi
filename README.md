@@ -6,9 +6,6 @@ https://drive.google.com/file/d/1YFjD6JKGK988xVYs0a4X9dlci9CsNG4Q/view?usp=shari
 IMG đã cài driver Mic I2S: 
 https://drive.google.com/file/d/1kYYMQDG7XgeOlvEzkzaJaYIteIJmDFv3/view?usp=drive_link
 
-IMG đã cài drive MIC 2 HATs new 22-12-2024: 
-https://drive.google.com/file/d/16UJK7hH8EPBpHvvVJD5qkbRXBiWYeh4i/view
-
  - Linux kernel 5.15.84 
  - User/pass Pi :(pi/raspberry)
 # Kết nối SSH vào Raspberry Pi:
@@ -50,14 +47,13 @@ cd /home/${USER}/
 source env/bin/activate
 pkill -9 python
 cd ViPi
-cd src
 python3 start.py
 ```
 --------------------------
 # Revision: 09-02-2025.
 --------------------------
-* Update picovoice==3.0.0 lưu ý chọn nhánh git V3
-* Update hiệu ứng led ring (only W2812)
+* Update picovoice==3.0.0
+* Update hiệu ứng led ring
 chạy các lệnh sau
 ```sh
 cd /home/${USER}/
