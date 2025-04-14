@@ -247,7 +247,9 @@ Sau đó kết nối với mạng WIFI đang sử dụng
 Chờ Bot khởi động lại và thực hiện config:
 ![image](https://github.com/user-attachments/assets/4c0ea98c-fedb-4f89-83dc-0328df7d21fd)
  * Truy cập: https://console.picovoice.ai/ để lấy AccessKey
- * Truy cập : IP_ADDRESS:8888 để dán AccessKey vừa tạo vào cài đặt khởi động lại
+ * Truy cập : IP_ADDRESS:8888 để dán AccessKey vừa tạo vào tab cài đặt, lưu lại và bấm khởi động lại tiến trình
+ * ![image](https://github.com/user-attachments/assets/0b7f49e0-1e05-492c-8294-61174c0eade7)
+
  * Chúc bạn thành công
 
 
