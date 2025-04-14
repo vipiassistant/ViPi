@@ -76,10 +76,7 @@ pip install --upgrade pip
 pip install yt_dlp
 pip install ujson
 ```
-# Bắt đầu với API Gemini
-* Truy cập vào Google AI Studio.
-* Đăng nhập bằng tài khoản Google của bạn.
-* Tạo khoá API, dán vào Vipi/src/config/apiGemini:"XXXXX'
+
 --------------------------
 # Revision: 07-11-2023.
 --------------------------
@@ -237,5 +234,24 @@ Ví dụ: Tèo ơi, phát bài hát hai mùa mưa trên Youtube
      - Vi Pi ơi, đổi giọng edge nam
      - Vi Pi ơi, đổi giọng zalo nam
      - Vi Pi ơi, đổi giọng google nam
+
+
+## Hướng dẫn cho bạn nào chưa biết, bạn nào biết rồi thì vui lòng bỏ qua!
+Bước 1: Tải IMG, dùng 7Zip giải nén được file .IMG
+Và dùng Phần mềm win32 disk imager để ghi ra thẻ:
+![image](https://github.com/user-attachments/assets/d49c9e29-5283-4776-8f2d-974c2d17a8b0)
+Gắn thẻ vào raspi đợi 1-2 phút, kết nối với mạng WiFi được raspi phát ra với tên "ViPi"
+![image](https://github.com/user-attachments/assets/5f0c5574-28dd-4b8c-aeec-b5a645fff00b)
+Sau đó kết nối với mạng WIFI đang sử dụng
+![image](https://github.com/user-attachments/assets/aa28546a-0330-4e6c-bd22-73b7f4a5fe81)
+Chờ Bot khởi động lại và thực hiện config:
+![image](https://github.com/user-attachments/assets/4c0ea98c-fedb-4f89-83dc-0328df7d21fd)
+ * Truy cập: https://console.picovoice.ai/ để lấy AccessKey
+ * Truy cập : IP_ADDRESS:8888 để dán AccessKey vừa tạo vào cài đặt khởi động lại
+ * Chúc bạn thành công
+
+
+
+
 ## Email liên hệ:  vipi.team@gmail.com
 ## Facebook: https://www.facebook.com/groups/285131860062315/
