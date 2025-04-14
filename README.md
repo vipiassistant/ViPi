@@ -3,8 +3,8 @@
 IMG đã cài driver Mic USB: 
 https://drive.google.com/file/d/1YFjD6JKGK988xVYs0a4X9dlci9CsNG4Q/view?usp=sharing
 
-IMG đã cài driver Mic I2S: 
-https://drive.google.com/file/d/1kYYMQDG7XgeOlvEzkzaJaYIteIJmDFv3/view?usp=drive_link
+IMG đã cài driver Mic I2S: "Revision": "10-04-2025"
+(https://drive.google.com/file/d/1LP9imo3AAK5dEc8lzh_Z0hTtVFsrkjaQ/view?usp=sharing)
 
  - Linux kernel 5.15.84 
  - User/pass Pi :(pi/raspberry)
