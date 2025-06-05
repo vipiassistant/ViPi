@@ -50,6 +50,17 @@ cd ViPi
 python3 start.py
 ```
 --------------------------
+# Revision: 06-05-2025.
+--------------------------
+* Update nhánh asyncio
+chạy các lệnh sau
+```sh
+cd /home/${USER}/
+source env/bin/activate
+pip install --upgrade pip
+pip install asyncio
+```
+--------------------------
 # Revision: 09-02-2025.
 --------------------------
 * Update picovoice==3.0.0
